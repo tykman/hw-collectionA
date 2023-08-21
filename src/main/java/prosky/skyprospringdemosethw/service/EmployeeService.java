@@ -15,10 +15,21 @@ public  class EmployeeService {
 
     private final List<Employee> employees = new ArrayList<>();
 
+    public EmployeeService (){
+        employees.add(new Employee("Лу","На",1000.0,1));
+        employees.add(new Employee("Ве","Нера",2000.2,1));
+        employees.add(new Employee("Зе","Мля",3000.3,1));
+
+        employees.add(new Employee("Сан","Санов",8888.8,2));
+
+        employees.add(new Employee("Гуля","Гулева",9999.9,2));
+        employees.add(new Employee("Зуля","Зулева",4444.4,2));
+    }
+
     private final static int MAX_SIZE=2;
 
-    public Employee add(String firstName, String lastName) {
-        Employee newEmployee = new Employee(firstName, lastName);
+    public Employee add(String firstName, String lastName,double salary,Integer departmentId) {
+        Employee newEmployee = new Employee(firstName, lastName,salary,departmentId);
         if (employees.contains(newEmployee)){
             throw new EmployeeAlreadyAddedException("Такой сотрудник уже есть");
         }
@@ -29,8 +40,8 @@ public  class EmployeeService {
         return newEmployee;
     }
 
-    public Employee find(String firstName,String lastName){
-        Employee employeeForFound= new Employee(firstName, lastName);
+    public Employee find(String firstName,String lastName,double salary,Integer departmentId){
+        Employee employeeForFound= new Employee(firstName, lastName,salary,departmentId);
         for (Employee e: employees){
             if (e.equals(employeeForFound)) {
                 return e;
@@ -39,8 +50,8 @@ public  class EmployeeService {
         throw new EmployeeNotFoundException("Такого сотрудника нет");
     }
 
-    public Employee remove(String firstName,String lastName){
-        Employee employeeForRemove = new Employee(firstName, lastName);
+    public Employee remove(String firstName,String lastName,double salary,Integer departmentId){
+        Employee employeeForRemove = new Employee(firstName, lastName,salary,departmentId);
         boolean removeResult = employees.remove(employeeForRemove);
         if (removeResult) {
             return employeeForRemove;
