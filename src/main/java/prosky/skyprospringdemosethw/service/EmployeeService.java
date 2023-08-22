@@ -20,10 +20,11 @@ public  class EmployeeService {
         employees.add(new Employee("Ве","Нера",2000.2,1));
         employees.add(new Employee("Зе","Мля",3000.3,1));
 
-        employees.add(new Employee("Сан","Санов",8888.8,2));
+        employees.add(new Employee("Сап","Санов",8888.8,2));
+        employees.add(new Employee("Сапа","Санова", 5555.3,2));
 
-        employees.add(new Employee("Гуля","Гулева",9999.9,2));
-        employees.add(new Employee("Зуля","Зулева",4444.4,2));
+        employees.add(new Employee("Гуля","Гулева",9999.9,3));
+        employees.add(new Employee("Зуля","Зулева",4444.5,3));
     }
 
     private final static int MAX_SIZE=2;
